@@ -12,7 +12,7 @@ module.exports = {
   output: {
     path: path.resolve(dirname, 'assets'),
     filename: 'js/[name]-[chunkhash:8].js',
-    chunkFilename: 'js/chunk-[id]-[chunkhash:8].js',
+    chunkFilename: 'js/chunks/chunk-[id]-[chunkhash:8].js',
     publicPath: ''
   },
   plugins: [
