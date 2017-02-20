@@ -1,3 +1,5 @@
+require('./style.less')
+
 if (process.env.NODE_ENV === 'development') {
   require.ensure([], function() {
     console.log('module1.before');

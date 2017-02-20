@@ -12,8 +12,19 @@ module.exports = {
   output: {
     path: path.resolve(dirname, 'assets'),
     filename: 'js/[name]-[chunkhash:8].js',
-    chunkFilename: 'js/chunks/chunk-[id]-[chunkhash:8].js',
-    publicPath: ''
+    chunkFilename: 'js/chunks/chunk-[id]-[chunkhash:8].js'
+  },
+  module: {
+    rules: [{
+      test: /\.less$/,
+      use: [{
+        loader: 'style-loader'
+      }, {
+        loader: 'css-loader'
+      }, {
+        loader: 'less-loader'
+      }]
+    }]
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
