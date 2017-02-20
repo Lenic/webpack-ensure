@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var dirname = process.cwd();
 
@@ -17,13 +18,14 @@ module.exports = {
   module: {
     rules: [{
       test: /\.less$/,
-      use: [{
-        loader: 'style-loader'
-      }, {
-        loader: 'css-loader'
-      }, {
-        loader: 'less-loader'
-      }]
+      use: ExtractTextPlugin.extract({
+        fallback: "style-loader",
+        use: [{
+          loader: 'css-loader'
+        }, {
+          loader: 'less-loader'
+        }]
+      })
     }]
   },
   plugins: [
@@ -35,6 +37,7 @@ module.exports = {
       filename: path.resolve(dirname, 'assets/index.html'),
       template: path.resolve(dirname, 'config/index.html'),
       chunks: ['manifest', 'vendor', 'main']
-    })
+    }),
+    new ExtractTextPlugin("css/[name]-[contenthash:8].css"),
   ]
 }
