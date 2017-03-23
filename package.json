@@ -13,12 +13,14 @@
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^0.26.1",
+    "express": "^4.15.2",
     "extract-text-webpack-plugin": "^2.0.0-rc.3",
     "html-webpack-plugin": "^2.28.0",
     "less": "^2.7.2",
     "less-loader": "^2.2.3",
     "style-loader": "^0.13.1",
-    "webpack": "^2.2.1"
+    "webpack": "^2.2.1",
+    "webpack-dev-middleware": "^1.10.1"
   },
   "dependencies": {
     "underscore": "^1.8.3"
